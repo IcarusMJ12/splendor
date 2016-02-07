@@ -1,0 +1,83 @@
+.table-row
+  display: table-row
+
+.row
+  margin: 0.5vmin
+  clear: both
+
+.noble
+  border: 1px solid black
+  font-family: "Lucida Console", Monospace
+  font-size: 3vmin
+  text-align: center
+  height: 9vmin
+  width: 9vmin
+  display: table
+  float: left
+  margin: 0.25vmin
+
+  .element
+    display: table-cell
+    height: 50%
+    width: 33%
+
+  .cost
+    @extend .element
+
+  .vp
+    @extend .element
+
+.card
+  border: 1px solid black
+  font-family: "Lucida Console", Monospace
+  font-size: 2vmin
+  text-align: center
+  height: 6.25vmin
+  width: 12.5vmin
+  display: table
+  float: left
+  margin: 0.25vmin
+
+  .element
+    display: table-cell
+    height: 50%
+    width: 25%
+
+  .cost
+    @extend .element
+
+  .production
+    @extend .element
+    -moz-border-radius: 50%
+    -webkit-border-radius: 50%
+    border-radius: 50%
+    height: 50%
+
+  .vp
+    @extend .element
+
+// colors
+.red
+  color: white
+  background-color: red
+  border: 1px solid red
+
+.green
+  color: white
+  background-color: green
+  border: 1px solid green
+
+.blue
+  color: white
+  background-color: blue
+  border: 1px solid blue
+
+.white
+  color: black
+  background-color: white
+  border: 1px solid black
+
+.black
+  color: white
+  background-color: black
+  border: 1px solid black
