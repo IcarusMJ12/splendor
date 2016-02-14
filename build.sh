@@ -2,6 +2,6 @@
 
 set -v
 
-lsc -o js -c src/*.ls
-browserify js/*.js -o out/bundle.js
+lsc -m debug -o js -c src/*.ls
+browserify -d js/*.js -o out/bundle.js
 sass-1.9 src/splendor.sass out/splendor.css
