@@ -4,75 +4,132 @@
   -ms-border-radius: $radius
   border-radius: $radius
 
+=rotate($degrees)
+  -webkit-transform: rotate($degrees)
+  -moz-transform:    rotate($degrees)
+  -ms-transform:     rotate($degrees)
+  -o-transform:      rotate($degrees)
+
+#root
+  font-family: "Lucida Console", Monospace
+
 .table-row
   display: table-row
 
-.row
+.card-row
   margin: 0.5vmin
+  width: 100%
   clear: both
 
-.noble
-  border: 2px solid black
-  font-family: "Lucida Console", Monospace
-  font-size: 3.5vmin
-  text-align: center
-  height: 9vmin
-  width: 9vmin
-  display: table
+.board
+  height: 100%
+  width: 80vmin
   float: left
-  margin: 0.25vmin
 
-  .element
-    display: table-cell
-    height: 50%
-    width: 33%
+  // TODO: soup it up
+  .chips
+    @extend .card-row
+    padding-left: 14vmin
 
-  .cost
-    @extend .element
+  .chip
+    +border-radius(50%)
+    text-align: center
+    font-size: 5vmin
+    height: 6vmin
+    width: 6vmin
+    margin: 0.25vmin
+    float: left
 
-  .vp
-    @extend .element
+  .nobles
+    @extend .card-row
+    padding-left: 14vmin
 
-.card-common
-  border: 2px solid black
-  font-family: "Lucida Console", Monospace
-  font-size: 2.5vmin
-  text-align: center
-  height: 6.25vmin
-  width: 12.5vmin
+  .noble
+    border: 2px solid black
+    font-size: 3.5vmin
+    text-align: center
+    height: 9vmin
+    width: 9vmin
+    display: table
+    float: left
+    margin: 0.25vmin
+
+    .element
+      display: table-cell
+      height: 50%
+      width: 33%
+
+    .cost
+      @extend .element
+
+    .vp
+      @extend .element
+
+  .card-common
+    border: 2px solid black
+    font-size: 2.5vmin
+    text-align: center
+    height: 6.25vmin
+    width: 12.5vmin
+    float: left
+    margin: 0.25vmin
+
+  .card-empty
+    @extend .card-common
+    border: 2px solid white
+    background-color: white
+    
+  .card-back
+    @extend .card-common
+    @extend .lightgray
+    font-size: 5vmin
+
+  .card
+    @extend .card-common
+    display: table
+
+    .element
+      display: table-cell
+      height: 50%
+      width: 25%
+
+    .cost
+      @extend .element
+
+    .production
+      @extend .element
+      +border-radius(50%)
+      height: 50%
+
+    .vp
+      @extend .element
+
+.players
+  height: 100%
+  width: 20vmin
   float: left
-  margin: 0.25vmin
 
-.card-empty
-  @extend .card-common
-  border: 2px solid white
-  background-color: white
-  
-.card-back
-  @extend .card-common
-  background-color: lightgray
-  color: black
-  font-size: 5vmin
+.player
+  width: 100%
+  float: left
 
-.card
-  @extend .card-common
-  display: table
-
-  .element
-    display: table-cell
-    height: 50%
-    width: 25%
-
-  .cost
-    @extend .element
+  .col
+    float: left
+    margin: 0.25vmin
+    text-align: center
 
   .production
-    @extend .element
-    +border-radius(50%)
-    height: 50%
+    height: 3.5vmin
+    clear: both
 
-  .vp
-    @extend .element
+  .chip
+    height: 3.5vmin
+    width: 3.5vmin
+    +border-radius(50%)
+
+  .reserved
+    @extend .lightgray
+    float: left
 
 // colors
 .red
@@ -80,9 +137,19 @@
   background-color: red
   border: 1px solid red
 
+.red-inverted
+  color: red
+  background-color: white
+  border: 1px solid red
+
 .green
   color: white
   background-color: green
+  border: 1px solid green
+
+.green-inverted
+  color: green
+  background-color: white
   border: 1px solid green
 
 .blue
@@ -90,12 +157,84 @@
   background-color: blue
   border: 1px solid blue
 
+.blue-inverted
+  color: blue
+  background-color: white
+  border: 1px solid blue
+
 .white
   color: black
   background-color: white
+  border: 1px solid black
+
+.white-inverted
+  color: white
+  background-color: black
   border: 1px solid black
 
 .black
   color: white
   background-color: black
   border: 1px solid black
+
+.black-inverted
+  color: black
+  background-color: white
+  border: 1px solid black
+
+.gold
+  color: black
+  background-color: yellow
+  border: 1px solid yellow
+
+.lightgray
+  background-color: lightgray
+  color: black
+
+// victory points five point star
+.vps
+  position: relative
+
+.vps-count
+  position: absolute
+  top: -0.5vmin
+  left: 2.5vmin
+
+.five-star
+  margin: 2vmin 0
+  position: relative
+  display: block
+  color: black
+  width: 0vmin
+  height: 0vmin
+  border-right:  4vmin solid transparent
+  border-bottom: 2.8vmin  solid yellow
+  border-left:   4vmin solid transparent
+  +rotate(35deg)
+
+.five-star:before
+  border-bottom: 3.2vmin solid yellow
+  border-left: 1.2vmin solid transparent
+  border-right: 1.2vmin solid transparent
+  position: absolute
+  height: 0
+  width: 0
+  top: -1.8vmin
+  left: -2.6vmin
+  display: block
+  content: ''
+  +rotate(-35deg)
+
+.five-star:after
+  position: absolute
+  display: block
+  color: black
+  top: 0.12vmin
+  left: -4.2vmin
+  width: 0vmin
+  height: 0vmin
+  border-right: 4vmin solid transparent
+  border-bottom: 2.8vmin solid yellow
+  border-left: 4vmin solid transparent
+  +rotate(-70deg)
+  content: ''

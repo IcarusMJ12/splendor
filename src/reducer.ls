@@ -15,9 +15,9 @@ reducers =
 
     result =
       players:
-        0: cards: [], reserved: [], chips: [0] * 6
-        1: cards: [], reserved: [], chips: [0] * 6
-        2: cards: [], reserved: [], chips: [0] * 6
+        0: cards: [], reserved: [], chips: [0] * 6, nobles: []
+        1: cards: [], reserved: [], chips: [0] * 6, nobles: []
+        2: cards: [], reserved: [], chips: [0] * 6, nobles: []
         current_player: ch.integer min: 0, max: 2
       board:
         chips: [5] * 6
