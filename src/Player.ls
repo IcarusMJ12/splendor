@@ -18,7 +18,7 @@ module.exports = React.createFactory React.createClass do
 
     $$.div className: 'player',
       $$.div className: 'col',
-        $$.div className: 'name', 'P' + index.toString!
+        $$.div className: 'name', 'P' + (index + 1).toString!
         PlayerVPs { index }
       $$.div className: 'col',
         PlayerProduction { index }
