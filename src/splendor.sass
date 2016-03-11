@@ -104,6 +104,9 @@
     .vp
       @extend .element
 
+.player-cell
+  height: 3.5vmin
+  
 .players
   height: 100%
   width: 20vmin
@@ -118,18 +121,25 @@
     margin: 0.25vmin
     text-align: center
 
-  .production
-    height: 3.5vmin
+  .cost
+    @extend .player-cell
+    width: 2vmin
+    font-size: 3vmin
     clear: both
 
-  .chip
-    height: 3.5vmin
-    width: 3.5vmin
-    +border-radius(50%)
-
   .reserved
+    @extend .player-cell
     @extend .lightgray
     float: left
+    width: 2vmin
+    clear: both
+    border: 1px solid lightgray
+
+  .chip
+    @extend .player-cell
+    font-size: 3vmin
+    width: 3.5vmin
+    +border-radius(50%)
 
 // colors
 .red
@@ -197,8 +207,9 @@
 
 .vps-count
   position: absolute
-  top: -0.5vmin
+  top: -0.75vmin
   left: 2.5vmin
+  font-size: 3.5vmin
 
 .five-star
   margin: 2vmin 0
